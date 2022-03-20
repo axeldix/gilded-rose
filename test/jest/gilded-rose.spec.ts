@@ -296,7 +296,44 @@ describe('Gilded Rose Backstage passes to a TAFKAL80ETC concert N3', () => {
   });
 });
 
-
-
-
-
+describe('Gilded Rose Conjured Mana Cake', () => {
+  beforeAll(() => {
+    initializeItems("Conjured Mana Cake", 3, 6)
+  })
+  it('After 1 day Conjured Mana Cake should have this values ', () => {
+    const items = gildedRose.updateQuality();
+    expect(items[0].name).toBe('Conjured Mana Cake');
+    expect(items[0].sellIn).toBe(2);
+    expect(items[0].quality).toBe(4);
+  });
+  it('After 2 days Conjured Mana Cake should have this values ', () => {
+    const items = gildedRose.updateQuality();
+    expect(items[0].name).toBe('Conjured Mana Cake');
+    expect(items[0].sellIn).toBe(1);
+    expect(items[0].quality).toBe(2);;
+  });
+  it('After 3 days Conjured Mana Cake should have this values ', () => {
+    const items = gildedRose.updateQuality();
+    expect(items[0].name).toBe('Conjured Mana Cake');
+    expect(items[0].sellIn).toBe(0);
+    expect(items[0].quality).toBe(0);
+  });
+  it('After 4 days Conjured Mana Cake should have this values ', () => {
+    const items = gildedRose.updateQuality();
+    expect(items[0].name).toBe('Conjured Mana Cake');
+    expect(items[0].sellIn).toBe(-1);
+    expect(items[0].quality).toBe(0);
+  });
+  it('After 5 days Conjured Mana Cake should have this values ', () => {
+    const items = gildedRose.updateQuality();
+    expect(items[0].name).toBe('Conjured Mana Cake');
+    expect(items[0].sellIn).toBe(-2);
+    expect(items[0].quality).toBe(0);
+  });
+  it('After 6 days Conjured Mana Cake should have this values ', () => {
+    const items = gildedRose.updateQuality();
+    expect(items[0].name).toBe('Conjured Mana Cake');
+    expect(items[0].sellIn).toBe(-3);
+    expect(items[0].quality).toBe(0);
+  });
+});
