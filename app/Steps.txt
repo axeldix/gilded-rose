@@ -1,0 +1,15 @@
+Process:
+
+1 - Read and undertand what the problem is about
+2 - Read the docs of the repo
+3 - Clone the repo and execute a first test to test everything is set and running.
+4 - Begin reading the code to understand how this legacy code works.
+5 - Add some comments on the code.
+5.1 - Since its a legacy code, the best approach is to build some tests that 
+gives me enough confidence to add new features withouth breaking what already
+ exists.
+6 - Check again the Tests
+7 - Look for some data to test, and found the golden-mater-text-test....
+8 - Build a some basic tests using the data from golden-mater-text-test file,
+ and to check every item is proccessed as should be. 
+9 - 
