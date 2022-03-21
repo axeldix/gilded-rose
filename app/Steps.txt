@@ -12,4 +12,6 @@ gives me enough confidence to add new features withouth breaking what already
 7 - Look for some data to test, and found the golden-mater-text-test....
 8 - Build a some basic tests using the data from golden-mater-text-test file,
  and to check every item is proccessed as should be. 
-9 - 
+9 - Do a first implementation of the Conjure feature, adding the less code possible.
+10 - seems very short, and I feel motivated so I'm trying to refactor the updateQuality method to be mantainable.
+ 
