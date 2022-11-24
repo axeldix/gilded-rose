@@ -9,14 +9,19 @@ const initializeItems = (name, sellIn, quality) => {
 describe('Gilded Rose +5 Dexterity Vest', () => {
   beforeAll(() => {
     initializeItems("+5 Dexterity Vest", 10, 20)
+    //                  NAME            SELLIN  QUALITY
   })
   it('After 1 day +5 Dexterity Vest should have this values ', () => {
+    expect(gildedRose.items[0].sellIn).toBe(10);
+    expect(gildedRose.items[0].quality).toBe(20);
     const items = gildedRose.updateQuality();
     expect(items[0].name).toBe('+5 Dexterity Vest'); 
     expect(items[0].sellIn).toBe(9);
     expect(items[0].quality).toBe(19);
   });
   it('After 2 days +5 Dexterity Vest should have this values ', () => {
+    expect(gildedRose.items[0].sellIn).toBe(9);
+    expect(gildedRose.items[0].quality).toBe(19);
     const items = gildedRose.updateQuality();
     expect(items[0].name).toBe('+5 Dexterity Vest');
     expect(items[0].sellIn).toBe(8);
@@ -63,6 +68,36 @@ describe('Gilded Rose Aged Brie', () => {
     expect(items[0].name).toBe('Aged Brie');
     expect(items[0].sellIn).toBe(-2);
     expect(items[0].quality).toBe(6);
+  });
+});
+
+describe('Gilded Rose Aged Brie with quality of 48', () => {
+  beforeAll(() => {
+    initializeItems("Aged Brie", 3, 48)
+  })
+  it('After 1 day Aged Brie should have this values ', () => {
+    const items = gildedRose.updateQuality();
+    expect(items[0].name).toBe('Aged Brie'); 
+    expect(items[0].sellIn).toBe(2);
+    expect(items[0].quality).toBe(49);
+  });
+  it('After 2 days Aged Brie should have this values ', () => {
+    const items = gildedRose.updateQuality();
+    expect(items[0].name).toBe('Aged Brie');
+    expect(items[0].sellIn).toBe(1);
+    expect(items[0].quality).toBe(50);
+  });
+  it('After 3 days Aged Brie should have this values ', () => {
+    const items = gildedRose.updateQuality();
+    expect(items[0].name).toBe('Aged Brie');
+    expect(items[0].sellIn).toBe(0);
+    expect(items[0].quality).toBe(50);
+  });
+  it('After 4 days Aged Brie should have this values ', () => {
+    const items = gildedRose.updateQuality();
+    expect(items[0].name).toBe('Aged Brie');
+    expect(items[0].sellIn).toBe(-1);
+    expect(items[0].quality).toBe(50);
   });
 });
 
@@ -250,6 +285,18 @@ describe('Gilded Rose Backstage passes to a TAFKAL80ETC concert N2', () => {
     expect(items[0].name).toBe('Backstage passes to a TAFKAL80ETC concert');
     expect(items[0].sellIn).toBe(6);
     expect(items[0].quality).toBe(50);
+  });
+});
+
+describe('Gilded Rose Backstage passes to a TAFKAL80ETC concert N2 with quality == 51', () => {
+  beforeAll(() => {
+    initializeItems("Backstage passes to a TAFKAL80ETC concert", 10, 51)
+  })
+  it('After 1 day Backstage passes to a TAFKAL80ETC concert should have this values ', () => {
+    const items = gildedRose.updateQuality();
+    expect(items[0].name).toBe('Backstage passes to a TAFKAL80ETC concert');
+    expect(items[0].sellIn).toBe(9);
+    expect(items[0].quality).toBe(51);
   });
 });
 

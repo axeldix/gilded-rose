@@ -1,6 +1,6 @@
-import { isDefaultClause } from "typescript";
-import { ITEM } from "./constants";
-import { defaultCase, updateAgedBrieQuality, updateBackstagePassesQuality, updateConjuredQuality } from "./updateQuality";
+import { superIfChainedSolution } from "./base-solution";
+import { refactorOne } from "./refactor-one";
+import { refactorTwo } from "./refactor-two";
 
 export class Item {
   name: string;
@@ -21,26 +21,22 @@ export class GildedRose {
     this.items = items;
   }
 
+
+  // Mejoras sugeridas:
+  // - Implementar Strategy Pattern
+  // - Reutilizar funciones
+  // - Crear una clase para cada tipo de item
+  // - Test coverage 100%
+  // - Usar ternarios en IFs
+
   updateQuality() {
 
-    for (let i = 0; i < this.items.length; i++) {
-      switch (this.items[i].name) {
-        case ITEM.AGED_BRIE:
-          updateAgedBrieQuality(this.items[i]);
-          break;
-        case ITEM.BACKSTAGE_PASSES:
-          updateBackstagePassesQuality(this.items[i]);
-          break;
-        case ITEM.CONJURED:
-          updateConjuredQuality(this.items[i]);
-          break;
-        case ITEM.SULFURAS:
-          break;
-        default:
-          defaultCase(this.items[i]);
-          break;
-      }
-    }
+    // superIfChainedSolution(this.items);
+
+    refactorOne(this.items);
+
+    // refactorTwo(this.items);
+    
     return this.items;
   }
 }
